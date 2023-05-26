@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyState: 0
   patrolPoints: []
-  patrolSpeed: 1
+  patrolSpeed: 2
   chaseSpeed: 10
   detectionRange: 300
   attackRange: 100

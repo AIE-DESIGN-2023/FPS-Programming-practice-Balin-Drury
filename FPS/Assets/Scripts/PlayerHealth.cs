@@ -8,11 +8,13 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
     public Image healthBar;
+    private GameStateManager gameStateManager;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        gameStateManager = FindObjectOfType<GameStateManager>();
     }
     
     public void TakeDamage(int damageToTake)
@@ -28,7 +30,8 @@ public class PlayerHealth : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+            gameStateManager.PlayerDies();
+            
         }
     }
 }
