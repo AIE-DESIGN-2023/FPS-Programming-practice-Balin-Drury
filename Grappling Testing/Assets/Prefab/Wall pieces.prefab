@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9190106843376951653}
   - component: {fileID: 6084557521361028816}
   m_Layer: 0
-  m_Name: Crates
+  m_Name: Wall pieces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
