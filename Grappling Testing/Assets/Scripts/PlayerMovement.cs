@@ -1,8 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    // Balin added varaibles
+    public int _playerScore;
+    private UIManager uiManager;
+
 
     //Assingables
     public Transform playerCam;
@@ -45,9 +51,32 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 normalVector = Vector3.up;
     private Vector3 wallNormalVector;
 
-    void Awake()
+
+    //Code that I (Balin) added
+
+
+    public void AddScore()
+    {
+        _playerScore++;
+    }
+
+
+
+
+
+
+
+    //Mostly not longer my (Balin) code (specified when I've added stuff)
+
+
+
+     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        //Added by Balin
+        uiManager = FindObjectOfType<UIManager>();
+        _playerScore = 0;
     }
 
     void Start()
@@ -67,6 +96,9 @@ public class PlayerMovement : MonoBehaviour
     {
         MyInput();
         Look();
+        //Added by Balin
+        uiManager.GetComponent<UIManager>().UpdateScoreText(_playerScore);
+       
     }
 
     /// <summary>
@@ -293,5 +325,8 @@ public class PlayerMovement : MonoBehaviour
     {
         grounded = false;
     }
+
+   
+
 
 }

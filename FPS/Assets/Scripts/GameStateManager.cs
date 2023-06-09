@@ -39,7 +39,7 @@ public class GameStateManager : MonoBehaviour
 
         enemiesText.text = enemiesLeft + "/" + enemiesTotal + " enemies down ";
 
-        //Check if there are any enemies left, if not player wins, turn on the victory canvas3
+        //Check if there are any enemies left, if not player wins, turn on the victory canvas
         if(enemiesLeft == 0)
         {
             //Turn on the Canvas GameObject
