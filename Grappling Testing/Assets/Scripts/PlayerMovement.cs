@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddScore()
     {
         _playerScore++;
+        uiManager.GetComponent<UIManager>().UpdateScoreText(_playerScore);
     }
 
 
@@ -77,13 +78,14 @@ public class PlayerMovement : MonoBehaviour
         //Added by Balin
         uiManager = FindObjectOfType<UIManager>();
         _playerScore = 0;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
     void Start()
     {
         playerScale = transform.localScale;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        
     }
 
 
@@ -97,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         Look();
         //Added by Balin
-        uiManager.GetComponent<UIManager>().UpdateScoreText(_playerScore);
+        
        
     }
 

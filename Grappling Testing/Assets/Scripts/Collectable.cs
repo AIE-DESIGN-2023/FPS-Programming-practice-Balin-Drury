@@ -12,7 +12,6 @@ public class Collectable : MonoBehaviour
         {
 
             //Destroy object and add score
-            Debug.Log("It worked!");
             other.GetComponent<PlayerMovement>().AddScore();
             Destroy(this.gameObject);
 
