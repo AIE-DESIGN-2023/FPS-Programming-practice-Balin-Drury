@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class GrapplingGun : MonoBehaviour
 {
@@ -7,12 +9,15 @@ public class GrapplingGun : MonoBehaviour
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
     public Transform gunTip, camera, player;
-    private float maxDistance = 1000f;
+    private float maxDistance = 2000f;
     private SpringJoint joint;
+    public Rigidbody rb;
+    public float rm;
 
     void Awake()
     {
         lr = GetComponent<LineRenderer>();
+ 
     }
 
     void Update()
@@ -25,7 +30,23 @@ public class GrapplingGun : MonoBehaviour
         {
             StopGrapple();
         }
+
+        if (Input.GetMouseButton(1) && IsGrappling())
+        {
+            StartReel();
+        }
+
     }
+
+    private void StartReel()
+    {
+        rb.AddForce((grapplePoint - transform.position) * rm);
+    }
+
+
+
+
+
 
     //Called after Update
     void LateUpdate()
@@ -94,4 +115,9 @@ public class GrapplingGun : MonoBehaviour
     {
         return grapplePoint;
     }
+
+
+
+
+
 }
